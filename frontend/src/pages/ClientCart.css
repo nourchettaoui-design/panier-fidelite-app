@@ -1,0 +1,275 @@
+/* ClientCart.css — full final layout (updated spacing adjustments)
+   - Extra vertical space between fullname and Numéro de carte
+   - Points and logout moved further down (kept right-edge alignment)
+   - Buttons remain side-by-side and equal width
+*/
+
+/* ---------- VARIABLES (tweak these for small alignment changes) ---------- */
+:root {
+    --logo-width: 160px;         /* width of the logo column */
+    --points-col-width: 240px;   /* width of the points column — affects buttons width */
+    --gap-col: 12px;             /* horizontal gap between columns */
+    --gap-row: 12px;             /* vertical gap between rows */
+    --muted: #6b7280;
+    --accent: #1177ee;
+    --text: #111827;
+    --bg: #ffffff;
+    --panel-max-width: min(36vw, 860px);
+}
+
+/* ---------- PAGE & PANEL ---------- */
+.client-page.client-page--white {
+    background: var(--bg);
+    min-height: 100vh;
+    padding: 36px 24px;
+    box-sizing: border-box;
+}
+
+.client-content {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 6vw;
+    padding-top: 8px;
+}
+
+.client-panel {
+    width: var(--panel-max-width);
+    max-width: 860px;
+    min-width: 340px;
+    margin: 0;
+    padding: 6px 0;
+    background: transparent;
+    box-sizing: border-box;
+}
+
+/* ---------- TOP-LEVEL GRID: LOGO + CONTENT COLUMN ---------- */
+.panel-grid-simple {
+    display: grid;
+    grid-template-columns: var(--logo-width) 1fr;
+    column-gap: var(--gap-col);
+    row-gap: 18px;
+    align-items: start;
+}
+
+/* Logo */
+.logo-col { grid-column: 1 / 2; }
+.client-logo {
+    width: var(--logo-width);
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-top: -32px; /* you previously requested a higher lift */
+}
+
+/* Content column */
+.content-col { grid-column: 2 / 3; position: relative; }
+
+/* ---------- HEADER: title (left) + logout (right) ---------- */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr var(--points-col-width);
+    column-gap: var(--gap-col);
+    align-items: center;     /* align title and logout vertically in the same row */
+    margin-top: 20px;        /* push header down as a block — increase value to move further */
+    margin-bottom: 28px;     /* space between header and the data grid (adjust as needed) */
+}
+
+.title-block { grid-column: 1 / 2; margin: 0; padding: 0; }
+.client-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text);
+}
+.client-subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 8px;
+}
+
+/* Logout: placed in the right (points) column and aligned to the end */
+.logout-anchor {
+    grid-column: 2 / 3;
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    margin-top: 0; /* ensure logout sits at same vertical level as title */
+}
+
+.panel-logout {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 6px;
+}
+.panel-logout:hover { background: rgba(17,119,238,0.06); color: var(--accent); }
+.panel-logout:focus-visible { outline: 3px solid rgba(17,119,238,0.14); outline-offset: 3px; border-radius: 8px; }
+
+/* ---------- DATA GRID: main content rows ---------- */
+/* grid: left flexible column (data) + right fixed points column */
+.data-grid {
+    display: grid;
+    grid-template-columns: 1fr var(--points-col-width);
+    grid-template-rows: auto auto auto;
+    gap: var(--gap-row) var(--gap-col); /* row-gap / column-gap */
+    align-items: start;
+    width: 100%;
+}
+
+/* Row 1: numero / points */
+.data-item {
+    grid-column: 1 / 2;
+}
+.data-item--points {
+    grid-column: 2 / 3;
+    text-align: right;
+    margin-top: 20px; /* push Points down to match logout and create extra breathing room */
+}
+
+/* Labels & values styling */
+.card-label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.card-value { font-size: 28px; font-weight: 700; color: var(--text); }
+
+/* Tweak: move "Numéro de carte" a bit lower to add vertical breathing room */
+.data-grid > .data-item:first-child {
+    margin-top: 20px; /* increased from 10px */
+}
+
+/* Points block styling */
+.points-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+}
+.points-value { font-size: 28px; font-weight: 700; color: var(--text); }
+.points-sub { font-size: 13px; color: var(--muted); }
+
+/* ---------- Row 2: META ROW (single-line) ---------- */
+/* Make meta row span both columns and lay out meta items on one line */
+.meta-row {
+    grid-column: 1 / -1; /* span both columns */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* distribute 3 items across full width */
+    gap: 12px;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    box-sizing: border-box;
+}
+
+/* meta item (each: Statut, Expiration, Dernière utilisation) */
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* allow truncation if screen narrow */
+    flex: 1 1 0;
+}
+.meta-item .card-label { margin-bottom: 4px; }
+.meta-item .card-value, .meta-item .meta-value { font-size: 14px; font-weight: 600; color: var(--text); }
+
+/* Ensure the three meta items are kept on a single line (no wrapping) */
+.meta-row { flex-wrap: nowrap; }
+
+/* For narrow screens, let the middle one shrink but still remain on row,
+   text-overflow handled by inner elements if needed */
+.meta-item .card-value {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ---------- Row 3: ACTIONS (buttons) ---------- */
+/* Place the actions wrapper inside the right column of the data grid (points column).
+   This aligns the buttons' right edge with the right edge of the Points column. */
+.actions-wrapper {
+    grid-column: 2 / 3;            /* force to points column */
+    display: flex;                 /* lay buttons horizontally */
+    gap: 12px;
+    justify-content: flex-end;     /* keep them right-aligned within the right column */
+    align-items: center;
+    margin-top: 6px;               /* nudge buttons slightly lower if needed */
+    min-width: 0;                  /* allow flex children to shrink properly */
+}
+
+/* Buttons in TSX are .button-primary.actions-btn — target both for safety */
+.actions-wrapper .actions-btn,
+.actions-wrapper .btn-action,
+.actions-wrapper .button-primary {
+    flex: 1 1 0;                   /* equal share of the container */
+    min-width: 0;                  /* prevents overflow issues on narrow screens */
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Primary visual style */
+.actions-wrapper .button-primary,
+.actions-wrapper .btn-action {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+}
+
+/* Secondary (outlined) variant if used */
+.actions-wrapper .button-primary.secondary,
+.actions-wrapper .btn-action.secondary,
+.actions-wrapper .actions-btn.secondary {
+    background: #fff;
+    color: var(--accent);
+    border: 1px solid rgba(17,119,238,0.14);
+}
+
+/* Disabled state */
+.actions-wrapper .button-primary:disabled,
+.actions-wrapper .btn-action:disabled,
+.actions-wrapper .actions-btn:disabled,
+.actions-wrapper button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* subtle hover; keep simple */
+.actions-wrapper .button-primary:hover,
+.actions-wrapper .btn-action:hover,
+.actions-wrapper .actions-btn:hover {
+    filter: brightness(0.96);
+    transform: translateY(-1px);
+    transition: all 120ms ease;
+}
+
+/* ---------- SMALL SCREEN ADJUSTMENTS ---------- */
+@media (max-width: 720px) {
+    .panel-grid-simple { grid-template-columns: 80px 1fr; }
+    :root { --logo-width: 80px; --points-col-width: 180px; }
+    .content-grid { margin-top: 12px; margin-bottom: 20px; align-items: center; }
+    .client-title { font-size: 20px; }
+    .data-grid { grid-template-columns: 1fr var(--points-col-width); }
+    .meta-row { font-size: 12px; gap: 8px; }
+    .actions-wrapper { gap: 8px; }
+
+    /* Slightly reduce the vertical offsets on small screens */
+    .content-grid { margin-bottom: 28px; }
+    .data-grid > .data-item:first-child { margin-top: 14px; }
+    .data-item--points { margin-top: 14px; }
+    .logout-anchor { margin-top: 0px; }
+}
+
+/* ---------- UTILITY ---------- */
+.hidden { display: none !important; }
+
+/* accessibility & focus */
+a[role="button"], button {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}

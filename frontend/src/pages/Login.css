@@ -1,0 +1,245 @@
+/* frontend/src/pages/Login.css */
+
+/* --------- Variables couleur (facile à personnaliser) --------- */
+:root {
+    --bg: #f5f7fb;
+    --card-bg: #ffffff;
+    --text: #16212b;
+    --muted: #6b7785;
+    --accent: #1177ee;
+    --accent-contrast: #ffffff;
+    --border: #e3e9ef;
+    --shadow: 0 10px 30px rgba(23,30,45,0.08);
+    --danger: #b00020;
+    --radius: 8px;
+    --card-padding: 28px;
+}
+
+/* ---------- Reset / utilitaires simples ---------- */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: var(--bg); color: var(--text); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- Page container: centrage ---------- */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--bg);
+}
+
+/* ---------- La "carte" contenant le formulaire ---------- */
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: var(--card-padding);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Logo inside the card */
+.login-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 12px;
+    max-height: 160px;
+    border-radius: 6px;
+    background: transparent;
+}
+
+/* Title */
+.login-card h1,
+.login-title {
+    margin: 0 0 12px; /* increased space below title */
+    font-size: 20px;
+    color: var(--text);
+    font-weight: 700;
+}
+
+/* small helper text under title */
+.small {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+/* ---------- Error / info ---------- */
+.error {
+    margin-top: 12px;
+    color: var(--danger);
+    font-size: 13px;
+}
+
+/* ---------- Formulaire & champs ---------- */
+.login-form { text-align: left; }
+.login-form label {
+    display: block;
+    margin: 8px 0 8px;
+    color: var(--muted); /* labels in muted grey like signup prompt */
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Fields fill the inner width of the card */
+.login-form input[type="email"],
+.login-form input[type="password"],
+.login-form input[type="text"],
+.login-form input[type="tel"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #fff;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+    transition: box-shadow .12s, border-color .12s;
+    box-sizing: border-box;
+}
+
+/* Focus styles */
+.login-form input:focus {
+    border-color: rgba(17,119,238,0.6);
+    box-shadow: 0 4px 14px rgba(17,119,238,0.08);
+}
+
+/* ---------- Input + toggle wrapper ---------- */
+.input-with-toggle { position: relative; }
+.input-with-toggle input { padding-right: 44px; }
+
+/* ---------- Show / hide password button ---------- */
+.show-password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+/* hover / focus affordance */
+.show-password-toggle:hover,
+.show-password-toggle:focus {
+    background: rgba(17,119,238,0.06);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(17,119,238,0.06);
+}
+
+/* ---------- Actions: boutons ---------- */
+.login-submit {
+    margin-top: 12px;
+}
+
+.button-primary {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: var(--radius);
+    border: none;
+    background: var(--accent);
+    color: var(--accent-contrast);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    transition: transform .06s ease, box-shadow .08s ease;
+}
+
+.button-primary:active { transform: translateY(1px); }
+.button-primary:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* ---------- Links under the form ---------- */
+.form-links {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center; /* keep centered layout */
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    flex-wrap: wrap;
+}
+
+/* Forgot password: blue, normal weight */
+.forgot-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 400; /* normal */
+}
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* Separator (pipe) */
+.form-links .separator {
+    color: var(--muted);
+    opacity: 0.85;
+    margin: 0 6px;
+}
+
+/* Signup prompt: grey text with a blue bold "Inscription" */
+.signup-prompt {
+    color: var(--muted);
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.signup-prompt .signup-link {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+.signup-prompt .signup-link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Responsive adjustments ---------- */
+@media (max-width: 520px) {
+    .login-card { padding: 20px; max-width: 100%; }
+    .login-card .login-logo { max-height: 120px; }
+    .input-with-toggle input { padding-right: 42px; }
+    .show-password-toggle { right: 8px; }
+    .form-links { flex-direction: column; gap: 8px; align-items: stretch; }
+    .form-links .separator { display: none; }
+}
+
+/* ---------- Small visual helpers ---------- */
+.tiny-muted { font-size: 12px; color: var(--muted); }
+.center { text-align: center; }
+
+
+.password-input input {
+    border: 1px solid #ccc;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+.password-input input:focus {
+    border-color: #3b82f6; /* blue focus */
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+}
+
+.password-toggle-btn {
+    color: #6b7280; /* muted grey */
+}
+.password-toggle-btn:hover {
+    color: #111827;
+}

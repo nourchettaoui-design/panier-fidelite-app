@@ -1,0 +1,24 @@
+nom;prenom;email;telephone;adresse;role;give_password
+Cassel;Sophie;manager1@example.com;0612345678;1 Rue du Siège, 75001 Paris;administrateur;yes
+Martin;Cedric;manager2@example.com;0612345679;2 Rue du Siège, 75002 Paris;administrateur;yes
+Lefevre;Paul;manager1.user01@example.com;0601020301;10 Rue Volta, 75003 Paris;utilisateur;yes
+Moreau;Claire;manager1.user02@example.com;0601020302;11 Rue Volta, 75003 Paris;utilisateur;yes
+Dupont;Julien;manager1.user03@example.com;0601020303;12 Rue Volta, 75003 Paris;utilisateur;yes
+Bernard;Amélie;manager1.user04@example.com;0601020304;13 Rue Volta, 75003 Paris;utilisateur;yes
+Roux;Thomas;manager1.user05@example.com;0601020305;14 Rue Volta, 75003 Paris;utilisateur;yes
+Petit;Lucie;manager1.user06@example.com;0601020306;15 Rue du Petit Pont, 75005 Paris;utilisateur;yes
+Robert;Hugo;manager1.user07@example.com;0601020307;16 Rue du Petit Pont, 75005 Paris;utilisateur;yes
+Durand;Élodie;manager1.user08@example.com;0601020308;17 Rue du Petit Pont, 75005 Paris;utilisateur;yes
+Dubois;Marc;manager1.user09@example.com;0601020309;18 Rue du Petit Pont, 75005 Paris;utilisateur;yes
+Morel;Nina;manager1.user10@example.com;0601020310;19 Rue du Petit Pont, 75005 Paris;utilisateur;yes
+Petitjean;Antoine;manager2.user01@example.com;0602030401;20 Rue du Bac, 75007 Paris;utilisateur;yes
+Gauthier;Sophie;manager2.user02@example.com;0602030402;21 Rue du Bac, 75007 Paris;utilisateur;yes
+Leroy;David;manager2.user03@example.com;0602030403;22 Rue du Bac, 75007 Paris;utilisateur;yes
+Fabre;Manon;manager2.user04@example.com;0602030404;23 Rue du Bac, 75007 Paris;utilisateur;yes
+Blanc;Alexandre;manager2.user05@example.com;0602030405;24 Rue de Grenelle, 75007 Paris;utilisateur;yes
+Garnier;Inès;manager2.user06@example.com;0602030406;25 Rue de Grenelle, 75007 Paris;utilisateur;yes
+Meyer;Pauline;manager2.user07@example.com;0602030407;26 Rue de Grenelle, 75007 Paris;utilisateur;yes
+Colin;Romain;manager2.user08@example.com;0602030408;27 Rue de Grenelle, 75007 Paris;utilisateur;yes
+Durand;Claire;manager2.user09@example.com;0602030409;28 Rue de Grenelle, 75007 Paris;utilisateur;yes
+Baron;Lucas;manager2.user10@example.com;0602030410;29 Rue de Grenelle, 75007 Paris;utilisateur;yes
+

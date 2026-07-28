@@ -1,0 +1,86 @@
+/* frontend/src/pages/AdminPage.css */
+.admin-header h2 { margin: 0; font-size: 18px; }
+.admin-header .small { color: var(--muted); font-size: 13px; }
+
+.card { background: var(--card-bg); padding: 12px; border-radius: 8px; box-shadow: var(--shadow); overflow-x: auto; }
+.admin-tables { display: block; }
+.admin-tables > section { margin-bottom: 18px; }
+.table-wrapper { width: 100%; overflow-x: auto; }
+.admin-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; min-width: 820px; table-layout: auto; }
+.admin-table thead th { text-align: left; padding: 8px; border-bottom: 1px solid var(--border); cursor: pointer; color: var(--text); font-weight: 600; }
+.admin-table tbody td { padding: 10px 8px; border-bottom: 1px dashed #eef3f7; vertical-align: middle; }
+.admin-table thead th.date-col {
+    width: 140px;
+    text-align: left;
+}
+.admin-table tbody td.date-col {
+    color: var(--muted);
+    font-size: 13px;
+    white-space: nowrap;
+}
+.admin-table thead th.date-col,
+.admin-table tbody td.date-col {
+    text-align: center;
+}
+
+.admin-table tbody tr:hover { background: rgba(17,119,238,0.02); }
+.monospace, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; }
+.small { font-size: 13px; color: var(--muted); }
+
+.panel-logout { background: transparent; border: none; color: var(--muted); cursor: pointer; padding: 6px; border-radius: 6px; }
+.panel-logout:hover, .panel-logout:focus { background: rgba(17,119,238,0.06); color: var(--text); outline: none; }
+
+.pagination-controls { display: flex; gap: 8px; align-items: center; }
+.pagination-controls .button-primary { width: auto; padding: 6px 10px; font-size: 13px; }
+.pagination-controls .page-info { color: var(--muted); font-size: 13px; }
+
+/* modal */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10,12,18,0.45);
+    z-index: 1200;
+    padding: 18px;
+}
+.modal-card {
+    width: 100%;
+    max-width: 520px;
+    background: var(--card-bg);
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+.modal-card h3 { margin-top: 0; margin-bottom: 8px; }
+
+/* password strength bars */
+.pwd-strength { display: flex; gap: 4px; width: 120px; }
+.pwd-strength .bar { height: 6px; flex: 1; background: #eee; border-radius: 4px; }
+.pwd-strength .bar.s1 { background: #ff9b9b; }
+.pwd-strength .bar.s2 { background: #ffcd6b; }
+.pwd-strength .bar.s3 { background: #9bd0ff; }
+.pwd-strength .bar.s4 { background: #7ad08a; }
+
+/* Make modal action buttons equal width */
+.modal-card .button-primary,
+.modal-card .button-secondary {
+    /* override global .button-primary width:100% */
+    width: auto;
+    /* allow them to grow equally inside the inline flex container */
+    flex: 1 1 0;
+    min-width: 0; /* prevents overflow in narrow containers */
+}
+
+
+/* secondary button */
+.button-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.button-secondary:hover { background: rgba(0,0,0,0.02); }
+
